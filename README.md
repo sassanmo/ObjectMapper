@@ -52,3 +52,12 @@ class TestClass: Codable {
   var a: Int = 0
 }
 ```
+
+### Recursive renaming
+If the JSON object represents a complex object, e.g. including multiple different objects, the keys can not only be changed on the top level object, but also for any sub-objects.
+
+```swift
+let object = ObjectMapper<TestClass>().map(data: data, renaming: ["a_key": "a"], recursive : true)
+```
+
+This would remap all the keys with the idetifier "a_key" to "a".
